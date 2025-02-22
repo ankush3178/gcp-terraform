@@ -1,0 +1,13 @@
+# Ignore terraform state files
+*.tfstate
+*.tfstate.backup
+crash.log
+
+# Ignore local .terraform directory
+.terraform/
+
+# Ignore sensitive files (like service account key)
+account.json
+
+# Ignore the Terraform lock file (if you want to allow flexibility)
+.terraform.lock.hcl
