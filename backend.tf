@@ -2,7 +2,6 @@ terraform {
   backend "gcs" {
     bucket = "avi-hero-no-1"
     prefix = "terraform/state"
-    credentials = file("./account.json")  # Credentials for backend storage
-    project = "terraform-451704"
+    credentials = file("./account.json") # Credentials for backend storage
   }
 }
