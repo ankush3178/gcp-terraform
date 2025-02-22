@@ -34,14 +34,11 @@ jobs:
         run: |
           cat > backend.tf << EOF
           terraform {
-            backend "remote" {
-              organization = "${secrets.GCP_SA_KEY}"
-
-              workspaces {
-                name = "${secrets.GCP_SA_KEY}"
+            backend "gcs" {
+              bucket = "avi-hero-no-1"
+              prefix = "terraform/state"
              }
             }
-          }
           EOF
         
       # Step 4: Initialize Terraform
