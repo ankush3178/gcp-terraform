@@ -25,7 +25,7 @@ jobs:
 
       # Step 3: Authenticate with GCP using the service account JSON stored in GitHub Secrets
       - name: Authenticate with GCP
-        run: echo "${{ secrets.GCP_SA_KEY }}" > ${{ github.workspace }}/account.json
+        run: echo '${{ secrets.GCP_SA_KEY }}' > ${{ github.workspace }}/account.json
 
       # Step 4: Initialize Terraform
       - name: Initialize Terraform
