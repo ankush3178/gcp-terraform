@@ -27,6 +27,9 @@ jobs:
       - name: Authenticate with GCP
         run: echo '${{ secrets.GCP_SA_KEY }}' > ${{ github.workspace }}/account.json
 
+      - name: reconfigure
+        run: terraform init -reconfigure 
+        
       # Step 4: Initialize Terraform
       - name: Initialize Terraform
         working-directory: ./
