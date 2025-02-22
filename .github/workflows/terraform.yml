@@ -53,10 +53,10 @@ jobs:
         run: terraform plan -var-file="./terraform.tfvars"
 
       # Step 6: Apply Terraform Changes
-      - name: Apply Terraform Changes
-        working-directory: ./
-        run: terraform apply -auto-approve -var-file="./terraform.tfvars"
+      #- name: Apply Terraform Changes
+      #  working-directory: ./
+      #  run: terraform apply -auto-approve -var-file="./terraform.tfvars"
 
       # Optional: Step 7: Terraform Destroy (If you want to destroy the resources)
-      #- name: Terraform Destroy
-      #  run: terraform destroy -auto-approve -var-file="./terraform.tfvars"
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve -var-file="./terraform.tfvars"
