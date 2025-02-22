@@ -26,8 +26,9 @@ jobs:
       # Step 3: Authenticate with GCP using the service account JSON stored in GitHub Secrets
       - name: Authenticate with GCP
         run: echo '${{ secrets.GCP_SA_KEY }}' > ${{ github.workspace }}/account.json
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: "${{ github.workspace }}/account.json"
+      
+      - name: Set GCP Credentials Env Variable
+        run: export GOOGLE_APPLICATION_CREDENTIALS= "${{ github.workspace }}/account.json"
 
       - name: Setup Terraform Backend
         id: backend
