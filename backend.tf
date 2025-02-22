@@ -1,6 +1,5 @@
 terraform {
-  backend "gcs" {
-    bucket = "avi-hero-no-1"  # The name of the GCS bucket
-    prefix = "terraform/state"       # Prefix within the bucket
+  backend "local" {
+    path = "./statefile/terraform.tfstate"  # Specify the path where the state file should be saved
   }
 }
