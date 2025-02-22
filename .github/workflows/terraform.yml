@@ -21,14 +21,14 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.10.5"  # Set the version of Terraform you need
+          terraform_version: "1.1.7"  # Set the version of Terraform you need
 
       # Step 3: Authenticate with GCP using the service account JSON stored in GitHub Secrets
       - name: Authenticate with GCP
         run: echo '${{ secrets.GCP_SA_KEY }}' > ${{ github.workspace }}/account.json
       
-      - name: Set GCP Credentials Env Variable
-        run: export GOOGLE_APPLICATION_CREDENTIALS= '${{ secrets.GCP_SA_KEY }}'
+      - name: Set GCP Credentials Environment Variable
+        run: echo "GOOGLE_APPLICATION_CREDENTIALS=$HOME/account.json" >> $GITHUB_ENV
 
       - name: Setup Terraform Backend
         id: backend
