@@ -1,5 +1,8 @@
 terraform {
-  backend "local" {
-    path = "./backend/terraform.tfstate"  # Specify the path where the state file should be saved
+  backend "gcs" {
+    bucket = "avi-hero-no-1"
+    prefix = "terraform/state"
+    credentials = file("./account.json")  # Credentials for backend storage
+    project = "terraform-451704"
   }
 }
