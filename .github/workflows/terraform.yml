@@ -29,8 +29,20 @@ jobs:
         env:
           GOOGLE_APPLICATION_CREDENTIALS: "${{ github.workspace }}/account.json"
 
-      - name: reconfigure
-        run: terraform init -reconfigure 
+      - name: Setup Terraform Backend
+        id: backend
+        run: |
+          cat > backend.tf << EOF
+          terraform {
+          backend "remote" {
+            organization = "${secrets.GCP_SA_KEY}"
+
+            workspaces {
+              name = "${secrets.GCP_SA_KEY}"
+            }
+          }
+          }
+          EOF
         
       # Step 4: Initialize Terraform
       - name: Initialize Terraform
