@@ -28,7 +28,7 @@ jobs:
         run: echo '${{ secrets.GCP_SA_KEY }}' > ${{ github.workspace }}/account.json
       
       - name: Set GCP Credentials Env Variable
-        run: export GOOGLE_APPLICATION_CREDENTIALS= "${{ github.workspace }}/account.json"
+        run: export GOOGLE_APPLICATION_CREDENTIALS= '${{ secrets.GCP_SA_KEY }}'
 
       - name: Setup Terraform Backend
         id: backend
